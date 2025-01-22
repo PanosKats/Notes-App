@@ -34,7 +34,7 @@ function noteComponent(id, title, desc, date) {
 	</div>
 	<div class="note-app__note-item__edit">
 		<div class="note-app__note-item__edit__date">${date}</div>
-		<div class="note-app__note-item__edit__icon" onclick="this.classList.toggle('show-popup')">
+		<div class="note-app__note-item__edit__icon" onclick="event.stopPropagation(); this.classList.toggle('show-popup')">
 			<button><i class="fa-solid fa-ellipsis-vertical"></i></button>
 			<div class="note-app__note-item__edit__popup">
 				<ul class="note-app__note-item__edit__popup__list">
@@ -169,6 +169,7 @@ exportButton.className = "form__submit";
 exportButton.style.backgroundColor = "white";
 exportButton.style.color = "var(--blue-65)";
 exportButton.style.border = "1px solid var(--blue-65)";
+exportButton.title = "Download notes as a JSON file";
 exportButton.onclick = exportNotes;
 
 const importInput = document.createElement("input");
@@ -185,6 +186,7 @@ importLabel.style.color = "var(--blue-65)";
 importLabel.style.border = "1px solid var(--blue-65)";
 importLabel.style.textAlign = "center";
 importLabel.style.cursor = "pointer";
+importLabel.title = "Upload a JSON file to restore notes";
 importLabel.style.margin = "0";
 importLabel.appendChild(importInput);
 
